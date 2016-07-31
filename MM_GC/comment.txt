@@ -1,0 +1,2 @@
+jdk 1.6
+VM options: -XX:PermSize=4m -XX:MaxPermSize=4m -Xmx10m
