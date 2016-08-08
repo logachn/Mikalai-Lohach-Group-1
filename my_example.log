@@ -1,0 +1,16 @@
+2016/08/08 02:34:13.022 [ INFO] main (CCRunner.java) - Choose animal from list below:
+1. Cat
+2. Dog
+Type number of your choice:
+2016/08/08 02:34:15.216 [ INFO] main (CCRunner.java) - cat.jar
+2016/08/08 02:34:15.216 [ INFO] main (CCRunner.java) - First attempt...
+2016/08/08 02:34:15.216 [ INFO] main (CCRunner.java) - Second attempt...
+2016/08/08 02:34:15.216 [ INFO] main (CCRunner.java) - Success!
+2016/08/08 02:38:02.351 [ INFO] main (CCRunner.java) - Choose animal from list below:
+1. Cat
+2. Dog
+Type number of your choice:
+2016/08/08 02:38:04.954 [ INFO] main (CCRunner.java) - dog.jar
+2016/08/08 02:38:04.954 [ INFO] main (CCRunner.java) - First attempt...
+2016/08/08 02:38:04.954 [ INFO] main (CCRunner.java) - Second attempt...
+2016/08/08 02:38:04.954 [ INFO] main (CCRunner.java) - Success!

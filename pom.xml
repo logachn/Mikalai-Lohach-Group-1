@@ -6,10 +6,12 @@
 
     <groupId>com.epam.jmp</groupId>
     <artifactId>multi-app</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
 
     <modules>
         <module>MM_GC</module>
+        <module>CC</module>
     </modules>
 
 </project>
