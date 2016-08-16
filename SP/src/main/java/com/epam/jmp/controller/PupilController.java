@@ -2,6 +2,7 @@ package com.epam.jmp.controller;
 
 
 import com.epam.jmp.dao.PupilDao;
+import com.epam.jmp.dao.PupilDaoImpl;
 import com.epam.jmp.model.Pupil;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.ParseException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +19,13 @@ public class PupilController extends HttpServlet {
 
     private static String INSERT_OR_EDIT = "/pupil.jsp";
     private static String LIST_USER = "/index.jsp";
-    private PupilDao dao;
+    private static String PUPILS = "pupils";
 
-    public PupilController() {
+    private PupilDaoImpl dao;
+
+    public PupilController() throws ClassNotFoundException, SQLException, InstantiationException, IOException, IllegalAccessException {
         super();
-        dao = new PupilDao();
+        PupilDao dao = new PupilDaoImpl();
     }
 
     @Override
@@ -30,11 +33,11 @@ public class PupilController extends HttpServlet {
         String forward = "";
         String action = req.getParameter("action");
 
-        if (action.equalsIgnoreCase("delete")) {
+        if (action.equalsIgnoreCase("deletePupil")) {
             int id = Integer.parseInt(req.getParameter("id"));
             dao.deletePupil(id);
             forward = LIST_USER;
-            req.setAttribute("pupils", dao.getAllPupils());
+            req.setAttribute(PUPILS, dao.getAllPupils());
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(req.getParameter("id"));
@@ -42,7 +45,7 @@ public class PupilController extends HttpServlet {
             req.setAttribute("pupil", pupil);
         } else if (action.equalsIgnoreCase("listPupils")) {
             forward = LIST_USER;
-            req.setAttribute("pupils", dao.getAllPupils());
+            req.setAttribute(PUPILS, dao.getAllPupils());
         } else {
             forward = INSERT_OR_EDIT;
         }
@@ -67,13 +70,13 @@ public class PupilController extends HttpServlet {
                 pupil.setId(Integer.parseInt(id));
                 dao.updatePupil(pupil);
             }
-            req.setAttribute("pupils", dao.getAllPupils());
+            req.setAttribute(PUPILS, dao.getAllPupils());
         } else {
             int id = Integer.parseInt(req.getParameter("listbox"));
             Pupil pupil = dao.getPupilById(id);
             List<Pupil> pupils = new ArrayList<>();
             pupils.add(pupil);
-            req.setAttribute("pupils", pupils);
+            req.setAttribute(PUPILS, pupils);
         }
         RequestDispatcher view = req.getRequestDispatcher(LIST_USER);
 
