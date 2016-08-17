@@ -12,6 +12,7 @@
     <modules>
         <module>MM_GC</module>
         <module>CC</module>
+        <module>SP</module>
     </modules>
 
 </project>
