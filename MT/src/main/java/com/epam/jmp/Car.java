@@ -30,6 +30,7 @@ public class Car implements Runnable {
                 distance += 100;
                 log.info(name + " " + distance);
             }
+            Race.recordResults(name);
         } catch (InterruptedException e) {
             log.error(e);
         }

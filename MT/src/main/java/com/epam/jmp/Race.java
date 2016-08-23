@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -13,7 +14,7 @@ public class Race {
 
     private final static int CAR_QUANTITY = 10;
 
-    private static List<String> places = new ArrayList<>();
+    private static List<String> places = Collections.synchronizedList(new ArrayList<>());
 
     private int disqualifiedCar;
 
@@ -30,11 +31,8 @@ public class Race {
                 long friction = (long) (Math.random() * 100 + 100);
                 Car car = new Car("car" + i, friction);
                 cars[i] = new Thread(car);
-                recordResults(car.getName());
                 cars[i].start();
             }
-
-            System.out.println(Arrays.toString(places.toArray()));
 
             Thread.sleep(5000);
 
@@ -55,13 +53,12 @@ public class Race {
 
         if (!cars[disqualifiedCar].isInterrupted()) {
             cars[disqualifiedCar].interrupt();
+            places.remove(disqualifiedCar);
         }
     }
 
     public void getResults() {
         log.info("Car " + disqualifiedCar + " was disqualifed");
-
-        places.remove(disqualifiedCar);
 
         log.info("Places: ");
 
