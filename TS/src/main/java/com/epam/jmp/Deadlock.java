@@ -41,7 +41,6 @@ public class Deadlock {
 
                 synchronized (resource1) {
                     log.info(t11.getName() + " 11: locked resource 1");
-                    //System.out.println(t11.getName() + " 11: locked resource 1");
 
                     try {
                         Thread.sleep(100);
@@ -49,10 +48,9 @@ public class Deadlock {
                     }
 
                     log.info(t11.getName() + " 11: waiting for release of resource 2");
-//                    System.out.println(t11.getName() +" 11: waiting for release of resource 2");
+
                     synchronized (resource2) {
                         log.info(t11.getName() + " 11: locked resource 2");
-//                        System.out.println(t11.getName() + " 11: locked resource 2");
                     }
                 }
             }
@@ -64,7 +62,6 @@ public class Deadlock {
 
                 synchronized (resource2) {
                     log.info(t21.getName() + " 21: locked resource 2");
-//                    System.out.println(t21.getName() + " 21: locked resource 2");
 
                     try {
                         Thread.sleep(100);
@@ -72,10 +69,9 @@ public class Deadlock {
                     }
 
                     log.info(t21.getName() + " 21: waiting for release of resource 1");
-//                    System.out.println(t21.getName() + " 21: waiting for release of resource 1");
+
                     synchronized (resource1) {
                         log.info(t21.getName() + " 21: locked resource 1");
-//                        System.out.println(t21.getName() + " 21: locked resource 1");
                     }
                 }
             }
@@ -85,10 +81,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t12.getName() + " 12: waiting for release of resource 1");
-//                System.out.println(t12.getName() + " 12: waiting for release of resource 1");
+
                 synchronized (resource1) {
                     log.info(t12.getName() + " 12: locked resource 1");
-//                    System.out.println(t12.getName() + " 12: locked resource 1");
 
                     try {
                         Thread.sleep(100);
@@ -102,10 +97,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t22.getName() + " 22: waiting for release of resource 2");
-//                System.out.println(t22.getName() + " 22: waiting for release of resource 2");
+
                 synchronized (resource1) {
                     log.info(t22.getName() + " 22: locked resource 2");
-//                    System.out.println(t22.getName() + " 22: locked resource 2");
 
                     try {
                         Thread.sleep(100);
@@ -119,10 +113,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t13.getName() + " 13: waiting for release of resource 1");
-//                System.out.println(t13.getName() + " 13: waiting for release of resource 1");
+
                 synchronized (resource1) {
-                    //  log.info("Thread 13: locked resource 1");
-                    System.out.println(t13.getName() + " 13: locked resource 1");
+                    log.info("Thread 13: locked resource 1");
 
                     try {
                         Thread.sleep(100);
@@ -136,10 +129,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t23.getName() + " 23: waiting for release of resource 2");
-//                System.out.println(t23.getName() + " 23: waiting for release of resource 2");
+
                 synchronized (resource1) {
                     log.info(t23.getName() + " 23: locked resource 2");
-//                    System.out.println(t23.getName() + " 23: locked resource 2");
 
                     try {
                         Thread.sleep(100);
@@ -153,10 +145,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t14.getName() + " 14: waiting for release of resource 1");
-//                System.out.println(t14.getName() + " 14: waiting for release of resource 1");
+
                 synchronized (resource1) {
                     log.info(t14.getName() + " 14: locked resource 1");
-//                    System.out.println(t14.getName() + " 14: locked resource 1");
 
                     try {
                         Thread.sleep(100);
@@ -170,10 +161,9 @@ public class Deadlock {
             public void run() {
 
                 log.info(t24.getName() + " 24: waiting for release of resource 2");
-//                System.out.println(t24.getName() + " 24: waiting for release of resource 2");
+
                 synchronized (resource1) {
                     log.info(t24.getName() + " 24: locked resource 2");
-//                    System.out.println(t24.getName() + " 24: locked resource 2");
 
                     try {
                         Thread.sleep(100);
