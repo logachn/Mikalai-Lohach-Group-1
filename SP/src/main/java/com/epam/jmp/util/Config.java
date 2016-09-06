@@ -11,7 +11,8 @@ public class Config {
     private static Config instance = null;
 
     public static synchronized Config getInstance() {
-        return instance == null ? new Config() : instance;
+        instance = instance == null ? new Config() : instance;
+        return instance;
     }
 
     public String getName() {
