@@ -10,7 +10,9 @@ public final class Config {
 
     private static Config instance = null;
 
-    static synchronized Config getInstance() {
+    private Config(){}
+
+    public static synchronized Config getInstance() {
         instance = instance == null ? new Config() : instance;
         return instance;
     }
