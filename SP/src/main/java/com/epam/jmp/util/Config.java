@@ -1,7 +1,7 @@
 package com.epam.jmp.util;
 
 
-public class Config {
+public final class Config {
 
     private String name;
     private String password;
@@ -9,6 +9,8 @@ public class Config {
     private String url;
 
     private static Config instance = null;
+
+    private Config(){}
 
     public static synchronized Config getInstance() {
         instance = instance == null ? new Config() : instance;
