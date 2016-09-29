@@ -10,6 +10,7 @@
     <version>1.0</version>
 
     <modules>
+        <module>AP_TO</module>
         <module>SPRINGMVS</module>
         <module>SPRINGCORE</module>
         <module>MM_GC</module>
